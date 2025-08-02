@@ -53,7 +53,8 @@ def message_create(prompt):
 def get_quiz(prompt):
     chat_model=ChatOpenAI(
         model="gpt-4",
-        temperature=0.7
+        temperature=0.7,
+        openai_api_key=os.getenv("OPENAI_API_KEY") 
     )
     response=chat_model.invoke(message_create(prompt))
     return response.content
